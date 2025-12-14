@@ -1,36 +1,16 @@
 #include <iostream>
-#include <string>
-#include <vector>
-
-// Placeholder for packet structure
-struct Packet {
-    int id;
-    std::string protocol;
-    int size;
-    std::string payload;
-};
-
-class PacketSniffer {
-public:
-    PacketSniffer() {
-        std::cout << "[*] Initializing Network Interface..." << std::endl;
-    }
-
-    void start_capture() {
-        std::cout << "[*] Starting Capture..." << std::endl;
-        // Logic for raw sockets will go here
-    }
-
-    void analyze_packet(const Packet& p) {
-        std::cout << "Packet ID: " << p.id << " | Protocol: " << p.protocol << std::endl;
-    }
-};
+#include "../include/sniffer.h"
 
 int main() {
-    std::cout << "=== Simple Packet Sniffer v0.1 ===" << std::endl;
-    
-    PacketSniffer sniffer;
-    sniffer.start_capture();
+    std::cout << "========================================" << std::endl;
+    std::cout << "   SIMPLE PACKET SNIFFER CLI v1.0       " << std::endl;
+    std::cout << "========================================" << std::endl;
+
+    // Initialize on a fake interface
+    Sniffer mySniffer("eth0");
+
+    // Start the capture loop
+    mySniffer.start();
 
     return 0;
 }
